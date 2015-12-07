@@ -14,7 +14,7 @@ class Magazine extends MY_Controller {
         $this->load->library('pagination');
         
         $limit = 3;
-        $where = "issue_number = 123";
+        $where = NULL;//"issue_number != 123";
         $orderBy = "issue_number desc";
         $count = $this->count_issue($where);
         $magazines = $this->load_all($where, $limit, $offset, $orderBy);
@@ -44,7 +44,7 @@ class Magazine extends MY_Controller {
     public function print_screen($offset = 0){
         $this->load->library('table');
         
-        $where = "issue_number = 123";
+        $where = NULL;//"issue_number = 123";
         $orderBy = "issue_number desc";
         $limit = $this->count_issue($where);
         $magazines = $this->load_all($where, $limit, $offset, $orderBy);

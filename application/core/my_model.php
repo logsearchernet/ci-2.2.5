@@ -73,11 +73,11 @@ class MY_Model extends CI_Model {
      * @return array Models populated by database, keyed by PK.
      */
     public function get($limit = 0, $offset = 0, $where=NULL, $orderBy=NULL) {
-        if(!empty($where))
+        if(isset($where) && !empty($where))
         {
             $this->db->where($where);
         }
-        if(!empty($orderBy))
+        if(isset($where) && !empty($orderBy))
         {
             $this->db->order_by($orderBy); 
         }
@@ -98,7 +98,10 @@ class MY_Model extends CI_Model {
     }
     
     public function count_by($where = NULL){
-        $this->db->where($where);
+        if(isset($where) && !empty($where))
+        {
+            $this->db->where($where);
+        }
         return $this->db->count_all_results($this::DB_TABLE);
     }
     
