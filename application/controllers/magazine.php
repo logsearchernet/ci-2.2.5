@@ -107,6 +107,14 @@ class Magazine extends MY_Controller {
         return $this->Issue->count_by($where);
     }
     
+    /**
+     * Load ISSUE table and PUBLICATION table
+     * @param type $where
+     * @param type $limit
+     * @param type $offset
+     * @param type $orderBy
+     * @return $magazines array
+     */
     private function load_all($where, $limit, $offset, $orderBy){
         $magazines = array();
         $this->load->model(array('Issue', 'Publication'));
